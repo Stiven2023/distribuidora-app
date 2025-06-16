@@ -11,24 +11,24 @@ import {
 } from "@heroui/navbar";
 import { Button } from "@heroui/button";
 import { Link } from "@heroui/link";
-import { Input } from "@heroui/input";
+// import { Input } from "@heroui/input"; // Removed unused import
+import { useState } from "react";
+import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import NextLink from "next/link";
+import { link as linkStyles } from "@heroui/theme";
 
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
-import { ShoppingCartIcon, SearchIcon } from "@/components/icons";
+import { ShoppingCartIcon } from "@/components/icons";
 import { Logo } from "@/components/icons";
-import clsx from "clsx";
-import { useState } from "react";
-import { link as linkStyles } from "@heroui/theme";
 
 export const Navbar = () => {
   const pathname = usePathname();
   const isAuthPage = pathname === "/login" || pathname === "/register";
   // Simulación del estado de autenticación
   // En una aplicación real, esto vendría de un AuthContext, NextAuth, etc.
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated] = useState(false);
 
   return (
     <HeroUINavbar maxWidth="xl" position="sticky">
@@ -69,12 +69,22 @@ export const Navbar = () => {
         {isAuthPage ? (
           <>
             <NavbarItem className="hidden md:flex">
-              <Button as={Link} color="default" href="/login" variant="bordered">
+              <Button
+                as={Link}
+                color="default"
+                href="/login"
+                variant="bordered"
+              >
                 Iniciar Sesión
               </Button>
             </NavbarItem>
             <NavbarItem className="hidden md:flex">
-              <Button as={Link} color="secondary" href="/register" variant="solid">
+              <Button
+                as={Link}
+                color="secondary"
+                href="/register"
+                variant="solid"
+              >
                 Registrarse
               </Button>
             </NavbarItem>
@@ -88,12 +98,22 @@ export const Navbar = () => {
         ) : (
           <>
             <NavbarItem className="hidden md:flex">
-              <Button as={Link} color="default" href="/login" variant="bordered">
+              <Button
+                as={Link}
+                color="default"
+                href="/login"
+                variant="bordered"
+              >
                 Iniciar Sesión
               </Button>
             </NavbarItem>
             <NavbarItem className="hidden md:flex">
-              <Button as={Link} color="secondary" href="/register" variant="solid">
+              <Button
+                as={Link}
+                color="secondary"
+                href="/register"
+                variant="solid"
+              >
                 Registrarse
               </Button>
             </NavbarItem>
@@ -102,11 +122,11 @@ export const Navbar = () => {
         <NavbarItem className="hidden md:flex">
           <Button
             isIconOnly
+            aria-label="Carrito de compras"
             as={Link}
             color="secondary"
             href={isAuthenticated ? "/cart" : "/checkout"}
             variant="flat"
-            aria-label="Carrito de compras"
           >
             <ShoppingCartIcon className="h-5 w-5" />
           </Button>
@@ -120,11 +140,11 @@ export const Navbar = () => {
             <NavbarItem>
               <Button
                 isIconOnly
+                aria-label="Carrito de compras"
                 as={Link}
                 color="secondary"
                 href={isAuthenticated ? "/cart" : "/checkout"}
                 variant="flat"
-                aria-label="Carrito de compras"
               >
                 <ShoppingCartIcon className="h-5 w-5" />
               </Button>
@@ -147,7 +167,7 @@ export const Navbar = () => {
             {/* Lógica de autenticación para el menú móvil */}
             {isAuthenticated ? (
               <NavbarMenuItem>
-                <Link href="/logout" size="lg" className="text-danger">
+                <Link className="text-danger" href="/logout" size="lg">
                   Cerrar Sesión
                 </Link>
               </NavbarMenuItem>

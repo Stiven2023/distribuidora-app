@@ -1,14 +1,11 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Input } from "@heroui/input";
-import { Select, SelectItem } from "@heroui/select";
-import { Pagination } from "@heroui/pagination";
-
-import { products } from "@/lib/data";
-import { ProductCard } from "@/components/product-card";
 import { title } from "@/components/primitives";
-import { SearchIcon } from "@/components/icons";
+import { ProductFilters } from "@/components/ProductFilters";
+import { ProductCatalog } from "@/components/ProductCatalog";
+import { useIsMobile } from "@/lib/useIsMobile";
+import { products } from "@/lib/data";
 
 const PRODUCTS_PER_PAGE = 8;
 
@@ -18,6 +15,8 @@ export default function ClientDashboardPage() {
   const [selectedBrand, setSelectedBrand] = useState("all");
   const [sortDescriptor, setSortDescriptor] = useState("name-asc");
   const [currentPage, setCurrentPage] = useState(1);
+
+  const isMobile = useIsMobile();
 
   const categories = useMemo(() => {
     const allCategories = products.map((p) => p.category);
@@ -78,83 +77,47 @@ export default function ClientDashboardPage() {
           Explora nuestra dulce selección de golosinas
         </p>
       </div>
-
-      {/* Filters and Search */}
-      <div className="flex flex-col md:flex-row gap-4 items-end">
-        <Input
-          isClearable
-          className="w-full md:max-w-sm"
-          placeholder="Buscar por nombre..."
-          startContent={<SearchIcon />}
-          value={searchQuery}
-          onValueChange={setSearchQuery}
-          aria-label="Buscar productos"
-        />
-        <Select
-          label="Categoría"
-          className="w-full md:max-w-xs"
-          selectedKeys={[selectedCategory]}
-          onChange={(e) => setSelectedCategory(e.target.value)}
-          aria-label="Filtrar por categoría"
-        >
-          {categories.map((category) => (
-            <SelectItem key={category}>{category}</SelectItem>
-          ))}
-        </Select>
-        <Select
-          label="Marca"
-          className="w-full md:max-w-xs"
-          selectedKeys={[selectedBrand]}
-          onChange={(e) => setSelectedBrand(e.target.value)}
-          aria-label="Filtrar por marca"
-        >
-          {brands.map((brand) => (
-            <SelectItem key={brand}>{brand}</SelectItem>
-          ))}
-        </Select>
-        <Select
-          label="Ordenar por"
-          className="w-full md:max-w-xs"
-          selectedKeys={[sortDescriptor]}
-          onChange={(e) => setSortDescriptor(e.target.value)}
-          aria-label="Ordenar productos"
-        >
-          <SelectItem key="name-asc">Nombre (A-Z)</SelectItem>
-          <SelectItem key="name-desc">Nombre (Z-A)</SelectItem>
-          <SelectItem key="price-asc">Precio (Menor a Mayor)</SelectItem>
-          <SelectItem key="price-desc">Precio (Mayor a Menor)</SelectItem>
-        </Select>
-      </div>
-
-      {/* Products Grid */}
-      {currentProducts.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {currentProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-      ) : (
-        <div className="text-center py-10">
-          <p className="text-lg text-default-500">
-            No se encontraron productos con esos criterios.
-          </p>
-        </div>
-      )}
-
-      {/* Pagination */}
-      {totalPages > 1 && (
-        <div className="flex justify-center">
-          <Pagination
-            isCompact
-            showControls
-            color="secondary"
-            total={totalPages}
-            initialPage={1}
-            page={currentPage}
-            onChange={setCurrentPage}
+      <div className="flex w-full gap-8 mx-auto">
+        {/* Filtros a la izquierda */}
+        <div className="items-start flex-shrink-0 hidden w-64 md:flex">
+          <ProductFilters
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+            selectedBrand={selectedBrand}
+            setSelectedBrand={setSelectedBrand}
+            sortDescriptor={sortDescriptor}
+            setSortDescriptor={setSortDescriptor}
+            categories={categories}
+            brands={brands}
+            isMobile={false}
           />
         </div>
-      )}
+        {/* Filtros en mobile */}
+        <ProductFilters
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+          selectedBrand={selectedBrand}
+          setSelectedBrand={setSelectedBrand}
+          sortDescriptor={sortDescriptor}
+          setSortDescriptor={setSortDescriptor}
+          categories={categories}
+          brands={brands}
+          isMobile={true}
+        />
+        {/* Catálogo centrado */}
+        <div className="flex-1">
+          <ProductCatalog
+            products={currentProducts}
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={setCurrentPage}
+          />
+        </div>
+      </div>
     </section>
   );
 }

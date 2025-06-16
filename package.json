@@ -19,8 +19,10 @@
     "@heroui/link": "2.2.18",
     "@heroui/listbox": "2.3.20",
     "@heroui/navbar": "2.2.19",
+    "@heroui/number-input": "^2.0.11",
     "@heroui/pagination": "^2.2.19",
     "@heroui/select": "^2.4.21",
+    "@heroui/skeleton": "^2.2.13",
     "@heroui/snippet": "2.2.22",
     "@heroui/switch": "2.2.19",
     "@heroui/system": "2.4.17",
@@ -37,7 +39,8 @@
     "next": "15.3.1",
     "next-themes": "0.4.6",
     "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react-dom": "18.3.1",
+    "recharts": "^2.15.3"
   },
   "devDependencies": {
     "@eslint/compat": "1.2.8",
