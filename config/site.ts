@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "DulceApp",
+  name: "Su Negocio Distribuciones",
   description: "Tu distribuidora de dulces y golosinas.",
   navItems: [
     {

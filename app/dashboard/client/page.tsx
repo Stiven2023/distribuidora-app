@@ -1,15 +1,29 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { title } from "@/components/primitives";
 import { ProductFilters } from "@/components/ProductFilters";
 import { ProductCatalog } from "@/components/ProductCatalog";
 import { useIsMobile } from "@/lib/useIsMobile";
 import { products } from "@/lib/data";
+import { useUser } from "@/app/providers";
+import { useRouter } from "next/navigation";
+import { UserRole } from "@/types";
 
 const PRODUCTS_PER_PAGE = 8;
 
 export default function ClientDashboardPage() {
+  const { user } = useUser();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (user && user.role !== UserRole.CLIENT) {
+      router.replace("/dashboard");
+    }
+  }, [user, router]);
+
+  if (!user || user.role !== UserRole.CLIENT) return null;
+
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedBrand, setSelectedBrand] = useState("all");
@@ -77,9 +91,9 @@ export default function ClientDashboardPage() {
           Explora nuestra dulce selección de golosinas
         </p>
       </div>
-      <div className="flex w-full gap-8 mx-auto">
+      <div className="left-0 flex w-full gap-8 mx-auto">
         {/* Filtros a la izquierda */}
-        <div className="items-start flex-shrink-0 hidden w-64 md:flex">
+        <div className="sticky flex w-64 gap-2 md:flex top-32">
           <ProductFilters
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
@@ -95,19 +109,21 @@ export default function ClientDashboardPage() {
           />
         </div>
         {/* Filtros en mobile */}
-        <ProductFilters
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-          selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
-          selectedBrand={selectedBrand}
-          setSelectedBrand={setSelectedBrand}
-          sortDescriptor={sortDescriptor}
-          setSortDescriptor={setSortDescriptor}
-          categories={categories}
-          brands={brands}
-          isMobile={true}
-        />
+        <div className="w-full mb-4 md:hidden">
+          <ProductFilters
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+            selectedCategory={selectedCategory}
+            setSelectedCategory={setSelectedCategory}
+            selectedBrand={selectedBrand}
+            setSelectedBrand={setSelectedBrand}
+            sortDescriptor={sortDescriptor}
+            setSortDescriptor={setSortDescriptor}
+            categories={categories}
+            brands={brands}
+            isMobile={true}
+          />
+        </div>
         {/* Catálogo centrado */}
         <div className="flex-1">
           <ProductCatalog

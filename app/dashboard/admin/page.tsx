@@ -1,7 +1,22 @@
 import { title } from "@/components/primitives";
 import { DashboardStatistics } from "@/components/DashboardStatistics";
+import { useUser } from "@/app/providers";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { UserRole } from "@/types";
 
 export default function AdminDashboardPage() {
+  const { user } = useUser();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (user && user.role !== UserRole.ADMIN) {
+      router.replace("/dashboard");
+    }
+  }, [user, router]);
+
+  if (!user || user.role !== UserRole.ADMIN) return null;
+
   // Simulación de estadísticas
   const stats = [
     { label: "Usuarios", value: 120 },

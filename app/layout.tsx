@@ -54,12 +54,12 @@ export default function RootLayout({
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col h-screen">
             <Navbar />
-            <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+            <main className="container mx-auto max-w-[calc(100vh - 0.5rem)] pt-16 px-6 flex-grow">
               {children}
             </main>
-            <footer className="w-full bg-background border-t border-divider">
-              <div className="container mx-auto max-w-7xl px-6 py-12">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <footer className="w-full border-t bg-background border-divider">
+              <div className="container px-6 py-12 mx-auto max-w-7xl">
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
                   {/* Columna de Marca y Redes Sociales */}
                   <div className="flex flex-col items-start gap-4">
                     <div className="flex items-center gap-2">
@@ -89,7 +89,7 @@ export default function RootLayout({
 
                   {/* Columna de Navegación */}
                   <div>
-                    <h3 className="font-bold mb-4">Navegación</h3>
+                    <h3 className="mb-4 font-bold">Navegación</h3>
                     <ul className="space-y-2">
                       {siteConfig.navItems.map((item) => (
                         <li key={item.href}>
@@ -106,7 +106,7 @@ export default function RootLayout({
 
                   {/* Columna Legal */}
                   <div>
-                    <h3 className="font-bold mb-4">Legal</h3>
+                    <h3 className="mb-4 font-bold">Legal</h3>
                     <ul className="space-y-2">
                       <li>
                         <Link
@@ -137,14 +137,14 @@ export default function RootLayout({
 
                   {/* Columna de Suscripción */}
                   <div>
-                    <h3 className="font-bold mb-4">
+                    <h3 className="mb-4 font-bold">
                       Suscríbete a nuestro boletín
                     </h3>
-                    <p className="text-sm text-default-500 mb-4">
+                    <p className="mb-4 text-sm text-default-500">
                       Recibe las últimas noticias, ofertas y tutoriales
                       directamente en tu bandeja de entrada.
                     </p>
-                    <div className="flex w-full max-w-sm items-center space-x-2">
+                    <div className="flex items-center w-full max-w-sm space-x-2">
                       <Input
                         aria-label="Email"
                         placeholder="Email"
@@ -156,7 +156,7 @@ export default function RootLayout({
                     </div>
                   </div>
                 </div>
-                <div className="mt-12 border-t border-divider pt-8 text-center">
+                <div className="pt-8 mt-12 text-center border-t border-divider">
                   <p className="text-sm text-default-400">
                     {new Date().getFullYear()} {siteConfig.name}. Todos los
                     derechos reservados.

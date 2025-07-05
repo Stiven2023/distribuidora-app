@@ -9,10 +9,12 @@ export const Logo: React.FC<IconSvgProps> = ({
   ...props
 }) => (
   <svg
-    fill="none"
-    height={size || height}
+    aria-hidden="true"
+    fill="currentColor"
+    height="1em"
+    role="presentation"
     viewBox="0 0 32 32"
-    width={size || width}
+    width="1em"
     {...props}
   >
     <path
@@ -292,5 +294,24 @@ export const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
     {...props}
   >
     <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-2.43.05-4.84-.95-6.43-2.88-1.59-1.93-2.15-4.52-1.71-7.03.45-2.5 2.41-4.53 4.81-5.67.57-.26 1.16-.44 1.78-.56v4.03c-1.18.18-2.25.66-3.16 1.44-.91.78-1.54 1.88-1.78 3.13-.24 1.25-.07 2.55.52 3.63.59 1.08 1.65 1.84 2.9 2.12.78.17 1.59.16 2.37.02.96-.18 1.84-.66 2.51-1.36.67-.7 1.14-1.61 1.35-2.65.07-.36.09-.73.09-1.1v-9.38c-.2-.02-.39-.04-.58-.05Z" />
+  </svg>
+);
+
+export const LogoIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    aria-hidden="true"
+    fill="currentColor"
+    height="1em"
+    role="presentation"
+    viewBox="0 0 32 32"
+    width="1em"
+    {...props}
+  >
+    <path
+      clipRule="evenodd"
+      d="M17.6482 10.1305L15.8785 7.02583L7.02979 22.5499H10.5278L17.6482 10.1305ZM19.8798 14.0457L18.11 17.1983L19.394 19.4511H16.8453L15.1056 22.5499H24.7272L19.8798 14.0457Z"
+      fill="currentColor"
+      fillRule="evenodd"
+    />
   </svg>
 );

@@ -29,13 +29,11 @@ import { Logo } from "@/components/icons";
 export const Navbar = () => {
   const pathname = usePathname();
   const isAuthPage = pathname === "/login" || pathname === "/register";
-  // Simulación del estado de autenticación
-  // En una aplicación real, esto vendría de un AuthContext, NextAuth, etc.
-  const [isAuthenticated] = useState(true); // Cambiado a true para mostrar el dropdown
+  const [isAuthenticated] = useState(false); // Cambiado a false para mostrar los botones cuando no está autenticado
   const user = {
     name: "Juan Pérez",
     email: "juan@email.com",
-    avatar: undefined, // Puedes poner una URL de imagen aquí
+    avatar: undefined,
   };
 
   return (
@@ -44,7 +42,7 @@ export const Navbar = () => {
         <NavbarBrand as="li" className="gap-3 max-w-fit">
           <NextLink className="flex items-center justify-start gap-1" href="/">
             <Logo />
-            <p className="font-bold text-inherit">DulceApp</p>
+            <p className="font-bold text-inherit">Su Negocio Distribuciones</p>
           </NextLink>
         </NavbarBrand>
         {!isAuthPage && (
@@ -162,18 +160,6 @@ export const Navbar = () => {
             </NavbarItem>
           </>
         )}
-        <NavbarItem className="hidden md:flex">
-          <Button
-            isIconOnly
-            aria-label="Carrito de compras"
-            as={Link}
-            color="secondary"
-            href={isAuthenticated ? "/cart" : "/checkout"}
-            variant="flat"
-          >
-            <ShoppingCartIcon className="w-5 h-5" />
-          </Button>
-        </NavbarItem>
       </NavbarContent>
 
       <NavbarContent className="pl-4 lg:hidden basis-1" justify="end">

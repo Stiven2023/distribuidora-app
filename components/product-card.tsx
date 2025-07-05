@@ -2,7 +2,6 @@
 
 import React from "react";
 import { Button } from "@heroui/button";
-import { ShoppingCartIcon } from "@/components/icons";
 import type { Product } from "@/lib/data";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus } from "lucide-react";

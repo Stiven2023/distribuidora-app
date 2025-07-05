@@ -1,0 +1,149 @@
+{
+  "categories": [
+    { "name": "ALDOR" },
+    { "name": "AMERICANDY" },
+    { "name": "BOCADILLOS" },
+    { "name": "CASEROS" },
+    { "name": "COLOMBINA" },
+    { "name": "CONFITECA" },
+    { "name": "DOMOS" },
+    { "name": "ITALO" },
+    { "name": "MAC DULCES" },
+    { "name": "MONDELEZ" },
+    { "name": "NESTLE" },
+    { "name": "NUTRESA" },
+    { "name": "PAQUETIKOS" },
+    { "name": "QUALA" },
+    { "name": "SUPER" }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "ANIS CONFITE X 100UN",
+      "category": "ALDOR",
+      "description": "Dulces confitados de anís, ideales para compartir en reuniones y fiestas.",
+      "price": 4800,
+      "imageUrl": "https://via.placeholder.com/300x300.png?text=ANIS+CONFITE"
+    },
+    {
+      "id": "2",
+      "name": "BB ACIDO",
+      "category": "ALDOR",
+      "description": "Caramelos ácidos con un sabor intenso y refrescante.",
+      "price": 6400,
+      "imageUrl": "https://via.placeholder.com/300x300.png?text=BB+ACIDO"
+    },
+    {
+      "id": "3",
+      "name": "CHOCOLATE AMERICANDY",
+      "category": "AMERICANDY",
+      "description": "Chocolate con leche de textura suave y sabor clásico.",
+      "price": 5200,
+      "imageUrl": "https://via.placeholder.com/300x300.png?text=CHOCOLATE+AMERICANDY"
+    },
+    {
+      "id": "4",
+      "name": "BOCADILLO TRADICIONAL",
+      "category": "BOCADILLOS",
+      "description": "Bocadillo de guayaba tradicional, perfecto para acompañar con queso.",
+      "price": 3500,
+      "imageUrl": "https://via.placeholder.com/300x300.png?text=BOCADILLO"
+    },
+    {
+      "id": "5",
+      "name": "GALLETAS CASERAS",
+      "category": "CASEROS",
+      "description": "Galletas artesanales hechas con ingredientes naturales.",
+      "price": 3700,
+      "imageUrl": "https://via.placeholder.com/300x300.png?text=GALLETAS+CASERAS"
+    },
+    {
+      "id": "6",
+      "name": "GOMITAS FRUTAS",
+      "category": "COLOMBINA",
+      "description": "Gomitas de frutas surtidas, suaves y llenas de sabor.",
+      "price": 2900,
+      "imageUrl": "https://via.placeholder.com/300x300.png?text=GOMITAS+FRUTAS"
+    },
+    {
+      "id": "7",
+      "name": "CARAMELOS CONFITECA",
+      "category": "CONFITECA",
+      "description": "Caramelos surtidos de la mejor calidad, perfectos para cualquier ocasión.",
+      "price": 3100,
+      "imageUrl": "https://via.placeholder.com/300x300.png?text=CONFITECA"
+    },
+    {
+      "id": "8",
+      "name": "DOMOS CHOCO",
+      "category": "DOMOS",
+      "description": "Dulces en forma de domo rellenos de chocolate cremoso.",
+      "price": 4500,
+      "imageUrl": "https://via.placeholder.com/300x300.png?text=DOMOS+CHOCO"
+    },
+    {
+      "id": "9",
+      "name": "ITALO MIX",
+      "category": "ITALO",
+      "description": "Mezcla de dulces y chocolates de la marca Italo.",
+      "price": 3900,
+      "imageUrl": "https://via.placeholder.com/300x300.png?text=ITALO+MIX"
+    },
+    {
+      "id": "10",
+      "name": "MAC DULCES SURTIDO",
+      "category": "MAC DULCES",
+      "description": "Surtido de dulces tradicionales de Mac Dulces.",
+      "price": 4200,
+      "imageUrl": "https://via.placeholder.com/300x300.png?text=MAC+DULCES"
+    },
+    {
+      "id": "11",
+      "name": "GALLETAS MONDELEZ",
+      "category": "MONDELEZ",
+      "description": "Galletas crocantes con trozos de chocolate.",
+      "price": 3600,
+      "imageUrl": "https://via.placeholder.com/300x300.png?text=MONDELEZ"
+    },
+    {
+      "id": "12",
+      "name": "CHOCOLATE NESTLE",
+      "category": "NESTLE",
+      "description": "Tableta de chocolate Nestlé, reconocida por su calidad y sabor.",
+      "price": 5600,
+      "imageUrl": "https://via.placeholder.com/300x300.png?text=CHOCOLATE+NESTLE"
+    },
+    {
+      "id": "13",
+      "name": "BARRA NUTRESA",
+      "category": "NUTRESA",
+      "description": "Barra de chocolate Nutresa, perfecta para un snack rápido.",
+      "price": 3300,
+      "imageUrl": "https://via.placeholder.com/300x300.png?text=NUTRESA"
+    },
+    {
+      "id": "14",
+      "name": "PAQUETIKOS MIX",
+      "category": "PAQUETIKOS",
+      "description": "Paquete surtido de snacks dulces y salados para toda ocasión.",
+      "price": 4100,
+      "imageUrl": "https://via.placeholder.com/300x300.png?text=PAQUETIKOS+MIX"
+    },
+    {
+      "id": "15",
+      "name": "GELATINA QUALA",
+      "category": "QUALA",
+      "description": "Gelatina en polvo de diferentes sabores, fácil de preparar.",
+      "price": 2500,
+      "imageUrl": "https://via.placeholder.com/300x300.png?text=QUALA+GELATINA"
+    },
+    {
+      "id": "16",
+      "name": "SUPER CHOCOLATE",
+      "category": "SUPER",
+      "description": "Chocolate en barra de la marca Super, ideal para postres.",
+      "price": 4700,
+      "imageUrl": "https://via.placeholder.com/300x300.png?text=SUPER+CHOCOLATE"
+    }
+  ]
+} 
